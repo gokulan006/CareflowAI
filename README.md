@@ -550,17 +550,17 @@ Copy-Item .env.example .env
 Edit the root `.env`. `DJANGO_SECRET_KEY` is required; Django fails at startup if it is empty. For local development use values similar to these placeholders:
 
 ```dotenv
-DJANGO_SECRET_KEY=<replace-with-a-random-local-development-secret>
+DJANGO_SECRET_KEY=wuk#b-i$)mqlr)55rw(05#5*+7(d(0riz^$7bc#=!pz3ft+a#c
 DJANGO_DEBUG=True
 DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
 DATABASE_URL=
-CORS_ALLOWED_ORIGINS=
-CSRF_TRUSTED_ORIGINS=
+CORS_ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+CSRF_TRUSTED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
 OPENAI_API_KEY=
 OPENAI_MODEL=gpt-4o-mini
 AI_PIPELINE_URL=
 AI_PIPELINE_TOKEN=
-AI_PIPELINE_TIMEOUT=8
+AI_PIPELINE_TIMEOUT=20
 ```
 
 #### Configuring the AI pipeline
@@ -704,4 +704,4 @@ Latest recorded application verification: Django test suite **77 tests passed**,
 
 Manual review after starting both servers should cover: patient and clinician registration; staff approve/reject; session persistence/logout; patient case isolation; consent grant/withdrawal; report upload, owner/assignment downloads, and invalid files; intake chat and consent-gated confirmation; assignment and escalation handoff; draft/request/finalized review privacy; appointment claim/status changes; AI status/result visibility; and narrow/mobile case detail layout.
 
-Keep `.env`, `db.sqlite3`, and `private_uploads/` out of version control. Never reset a database containing data to resolve a migration issue.
+ 
